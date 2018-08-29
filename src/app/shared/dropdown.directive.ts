@@ -11,7 +11,6 @@ export class DropdownDirective implements OnInit{
     ngOnInit(){}
 
     @HostListener('click') mouseHoverOn(eventData: Event){
-        console.log("ABC")
         this.isOpen = !this.isOpen;
         this.renderer.addClass(this.elemRef.nativeElement,'open');
     }
