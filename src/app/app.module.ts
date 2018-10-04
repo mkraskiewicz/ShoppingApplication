@@ -13,7 +13,6 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
 import { AuthModule } from './auth/auth.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
-import { RecipesModule } from './recipes/recipes.module';
 import { HomeComponent } from './home/home.component';
 
 
@@ -29,7 +28,6 @@ import { HomeComponent } from './home/home.component';
     HttpModule,
     AuthModule,
     ShoppingListModule,
-    RecipesModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
