@@ -15,14 +15,14 @@ export class DataStorageService {
     storeRecipes(){
 
         const token = this.authService.getToken();
-        return this.http.put('https://recipe-book-acd58.firebaseio.com/recipies.json?auth=' + token, 
+        return this.http.put('https://recipe-book-acd58.firebaseio.com/recipes.json?auth=' + token, 
             this.recipeService.getRecipes());
     }
 
     getRecipes(){
         const token = this.authService.getToken();
 
-        this.http.get('https://recipe-book-acd58.firebaseio.com/recipies.json?auth=' + token)
+        this.http.get('https://recipe-book-acd58.firebaseio.com/recipes.json?auth=' + token)
             .map(
                 (response) =>{
                     const recipes: Recipe[] = response.json();
@@ -35,8 +35,8 @@ export class DataStorageService {
                 }
             )
             .subscribe(
-                (recipies: Recipe[]) => {
-                    this.recipeService.setRecipes(recipies);
+                (recipes: Recipe[]) => {
+                    this.recipeService.setRecipes(recipes);
                 }
             );
     }
