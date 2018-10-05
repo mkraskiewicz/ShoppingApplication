@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
     this.dataStorageService.storeRecipes()
       .subscribe(
         (response) => {
-          
+          //console.log(response)
         }
       );
   }
