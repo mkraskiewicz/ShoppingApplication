@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { DataStorageService } from '../shared/data-storage.service';
-import { AuthService } from '../auth/auth.service';
+import { DataStorageService } from '../../shared/data-storage.service';
+import { AuthService } from '../../auth/auth.service';
+
 
 
 @Component({
@@ -13,8 +14,8 @@ export class HeaderComponent implements OnInit {
   constructor(private dataStorageService: DataStorageService,
               private authService: AuthService) { }
 
-  ngOnInit() {
-  }
+
+  ngOnInit() {}
 
   onSaveData(){
 
@@ -33,6 +34,16 @@ export class HeaderComponent implements OnInit {
   onLogout(){
 
     this.authService.logout();
+  }
+
+  getUserEmail(){
+
+    return this.authService.getEmail();
+  }
+
+  checkAuthentication(){
+
+    return this.authService.isAuthenticated();
   }
 
 }

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '../../../../node_modules/@angular/router';
-import { FormGroup, FormControl, FormArray, Validators } from '../../../../node_modules/@angular/forms';
+import { FormGroup, FormControl, FormArray, Validators, FormArrayName } from '../../../../node_modules/@angular/forms';
 import { RecipeService } from '../recipe.service';
-import { Recipe } from '../recipe.model';
+
 
 @Component({
   selector: 'app-recipe-edit',
@@ -93,6 +93,11 @@ export class RecipeEditComponent implements OnInit {
       'description': new FormControl(recipeDescription, Validators.required),
       'ingredients': recipeIngredients
     });
+  }
+
+  getControls(){
+
+    return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
 }

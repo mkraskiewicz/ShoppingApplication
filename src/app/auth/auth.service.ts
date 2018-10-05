@@ -7,13 +7,21 @@ import { Injectable } from '../../../node_modules/@angular/core';
 export class AuthService {
 
     token: string;
+    emailAddress: string;
+    error: string;
 
     constructor(private router: Router){}
 
     signupUser(email: string, password: string){
         firebase.auth().createUserWithEmailAndPassword(email, password)
+            .then(
+                response => {
+                    this.router.navigate(['/']);
+                })
             .catch(
-                error => console.log(error)
+                
+                error =>{console.log(error),
+                this.error = error}
             )
     }
 
@@ -30,7 +38,8 @@ export class AuthService {
                 }
             )
             .catch(
-                error => console.log(error)
+                error =>{console.log(error),
+                    this.error = error}
             );
     }
 
@@ -63,14 +72,26 @@ export class AuthService {
             (currentUser) => {
                 if(currentUser === null){
                     this.token = null;
+                    this.emailAddress = null
                 } else {
                     currentUser.getIdToken()
                         .then(
                             (token: string) => this.token = token
                         );
+                    this.emailAddress = currentUser.email;
                 }
             }
         )
+    }
+
+    getError(){
+        
+        return this.error;
+    }
+
+    getEmail(){
+
+        return this.emailAddress;
     }
 
 }
