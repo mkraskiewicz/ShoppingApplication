@@ -8,6 +8,8 @@ import { AuthModule } from './auth/auth.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { CoreModule } from './core/core.module';
 import { DataStorageService } from './shared/data-storage.service';
+import { StoreModule } from '../../node_modules/@ngrx/store';
+import { shoppingListReducer } from './shopping-list/store/shopping-list.reducers';
 
 
 
@@ -23,6 +25,7 @@ import { DataStorageService } from './shared/data-storage.service';
     ShoppingListModule,
     CoreModule,
     AppRoutingModule,
+    StoreModule.forRoot({shoppingList: shoppingListReducer}),
     ReactiveFormsModule
   ],
   providers: [

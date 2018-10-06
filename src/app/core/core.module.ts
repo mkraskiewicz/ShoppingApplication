@@ -1,5 +1,5 @@
-import { NgModule } from "../../../node_modules/@angular/core";
-import { HTTP_INTERCEPTORS } from "../../../node_modules/@angular/common/http";
+import { NgModule } from "@angular/core";
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 
 import { HeaderComponent } from "./header/header.component";
 import { HomeComponent } from "./home/home.component";

@@ -1,9 +1,9 @@
-import { Injectable } from "../../../node_modules/@angular/core";
+import { Injectable } from "@angular/core";
 import { RecipeService } from "../recipes/recipe.service";
 import { Recipe } from "../recipes/recipe.model";
 import 'rxjs/Rx';
 import { AuthService } from "../auth/auth.service";
-import { HttpClient, HttpParams, HttpRequest } from "../../../node_modules/@angular/common/http";
+import { HttpClient, HttpParams, HttpRequest } from "@angular/common/http";
 
 
 @Injectable()
